@@ -36,4 +36,4 @@ spec:
   ports:
     - port: 27017
       targetPort: 27017
-  type: ClusterIP
+  type: ClusterIP                                       #<---- this service type is cluster IP which is main for private communication
