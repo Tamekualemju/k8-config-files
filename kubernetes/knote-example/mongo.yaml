@@ -1,6 +1,6 @@
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment                                     #<----- Kind:  this is where you have to specify the porpose of this file.
 metadata:
   name: mongo
 spec:
