@@ -1,10 +1,10 @@
----
+---                                 # Doployment & Service are specified at the level of kind
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment                                                #<------ Kind is where you specify the main porpose of this config file
 metadata:
   name: knote
 spec:
-  replicas: 2
+  replicas: 2                                                   #<----- this is where we specified the numbers of replicas / containers to be created
   selector:
     matchLabels:
       app: knote
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: avinashmamidi/knotejs:1.0
+          image: avinashmamidi/knotejs:1.0                       #<---- this is where we have to specify the image to be pulled from the registory and be creates. this image was created and pushed to the registory by avinash. you can create yours and make use of it.
           ports:
             - containerPort: 3000
           env:
@@ -26,7 +26,7 @@ spec:
 
 ---
 apiVersion: v1
-kind: Service
+kind: Service                                                    #<----- kind shown that we are creating a service which act as elastic IP for containers 
 metadata:
   name: knote
 spec:
@@ -38,4 +38,4 @@ spec:
     - port: 80
       targetPort: 3000
       nodePort: 30000
-  type: LoadBalancer
+  type: LoadBalancer                                            #<----- the type of service that we have specify is load balancer which will scalle up or down based on the current demand.
