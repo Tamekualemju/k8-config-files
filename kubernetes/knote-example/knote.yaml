@@ -26,7 +26,7 @@ spec:
 
 ---
 apiVersion: v1
-kind: Service                                                    #<----- kind shown that we are creating a service which act as elastic IP for containers 
+kind: Service                                                    ##<----- kind shown that we are creating a service which act as elastic IP for containers 
 metadata:
   name: knote
 spec:
